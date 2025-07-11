@@ -65,6 +65,7 @@ function AddBook() {
             <option value="read">다 읽은 책</option>
           </select>
           {(status === "reading" || status === "read") && (
+          <div>
             <div>
               <label>읽은 기간</label><br />
               <input
@@ -79,28 +80,28 @@ function AddBook() {
                 onChange={(e) => setEndDate(e.target.value)}
               />
             </div>
-          )}
 
-        </div>
+            <div>
+              <label>감상 메모</label><br />
+              <textarea
+                value={memo}
+                onChange={(e) => setMemo(e.target.value)}
+                rows={5}
+              />
+            </div>
 
-        <div>
-          <label>감상 메모</label><br />
-          <textarea
-            value={memo}
-            onChange={(e) => setMemo(e.target.value)}
-            rows={5}
-          />
-        </div>
-
-        <div>
-          <label>별점 (1~5)</label><br />
-          <input
-            type="number"
-            min="1"
-            max="5"
-            value={rating}
-            onChange={(e) => setRating(parseInt(e.target.value))}
-          />
+            <div>
+              <label>별점 (1~5)</label><br />
+              <input
+                type="number"
+                min="1"
+                max="5"
+                value={rating}
+                onChange={(e) => setRating(parseInt(e.target.value))}
+              />
+            </div>
+          </div>
+        )}
         </div>
 
         <button type="submit">책 등록</button>
